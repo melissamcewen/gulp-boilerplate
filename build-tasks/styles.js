@@ -23,7 +23,7 @@ var gulp      = require('gulp'),
   },
   /* styles:watch */
   watch = function() {
-    gulp.watch(src.styles, ['styles:compile']);
+    gulp.watch(src.styles, ['compile:styles']);
   };
 
 module.exports = {
