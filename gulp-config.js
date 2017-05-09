@@ -29,8 +29,10 @@ module.exports = {
         'gulp-gh-pages'    : 'deploy',
         'gulp-util'        : 'gUtil',
         'gulp-cssnano'     : 'minify',
-        'gulp-autoprefixer': 'prefix'
-      }
+        'gulp-autoprefixer': 'prefix',
+        'gulp-clean-css'   : 'cleancss'
+      },
+      lazy: false
     },
     prefix: [
       'last 3 versions',
@@ -41,9 +43,6 @@ module.exports = {
     rename: {
       suffix: '.min'
     },
-    stylint: {
-      reporter: 'stylint-stylish'
-    },
     wrap: '(function() { <%= contents %> }());'
   },
   paths: {
@@ -53,7 +52,7 @@ module.exports = {
       markup   : 'src/markup/**/*.pug',
       overwatch: env + '**/*.{html,js,css}',
       scripts  : 'src/script/**/*.js',
-      styles   : 'src/style/**/*.styl'
+      styles   : 'src/style/**/*.scss'
     },
     destinations: {
       dist: './dist',

@@ -27,8 +27,7 @@ gulp.task('watch:scripts', scripts.watch);
   watch for changes to styles files then compile stylesheet from source
   auto prefixing content and generating output based on env flag.
 */
-gulp.task('lint:styles', styles.lint);
-gulp.task('compile:styles', ['lint:styles'], styles.compile);
+gulp.task('compile:styles', styles.compile);
 gulp.task('watch:styles', styles.watch);
 
 /*

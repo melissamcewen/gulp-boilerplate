@@ -7,21 +7,16 @@ var gulp      = require('gulp'),
   dest        = gConfig.paths.destinations,
   plugins     = require('gulp-load-plugins')(opts.load),
   /* styles:lint */
-  lint = function() {
-    return gulp.src(src.styles)
-      .pipe(plugins.stylint(opts.stylint))
-      .pipe(plugins.stylint.reporter());
-  },
   /* styles:compile */
   compile = function() {
     return gulp.src(src.styles)
       .pipe(plugins.plumber())
-      .pipe(plugins.concat(gConfig.pkg.name + '.stylus'))
-      .pipe(plugins.stylus())
+      .pipe(plugins.concat(gConfig.pkg.name + '.scss'))
+      .pipe(plugins.sass())
       .pipe(plugins.prefix(opts.prefix))
       .pipe(env.stat ? plugins.size(opts.gSize): plugins.gUtil.noop())
       .pipe(env.deploy ? plugins.gUtil.noop(): gulp.dest(env.dist ? dest.dist: dest.css))
-      .pipe(plugins.minify())
+      .pipe(plugins.cleancss())
       .pipe(plugins.rename(opts.rename))
       .pipe(env.stat ? plugins.size(opts.gSize): plugins.gUtil.noop())
       .pipe(gulp.dest(env.dist ? dest.dist: dest.css));
@@ -32,7 +27,6 @@ var gulp      = require('gulp'),
   };
 
 module.exports = {
-  lint   : lint,
   compile: compile,
   watch  : watch
 };
