@@ -49,7 +49,7 @@ module.exports = {
     base: env,
     sources: {
       docs     : 'src/markup/*.pug',
-      markup   : 'src/markup/**/*.pug',
+      markup   : 'src/markup/**/*.html',
       overwatch: env + '**/*.{html,js,css}',
       scripts  : 'src/script/**/*.js',
       styles   : 'src/style/**/style.scss'

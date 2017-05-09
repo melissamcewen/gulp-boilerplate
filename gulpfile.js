@@ -36,7 +36,6 @@ gulp.task('watch:styles', styles.watch);
   watch for all markup file changes then compile
   page document files.
 */
-gulp.task('lint:markup', markup.lint);
 gulp.task('compile:markup', markup.compile);
 gulp.task('watch:markup', markup.watch);
 
